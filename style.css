@@ -1,0 +1,146 @@
+body {
+  font-family: 'Helvetica Neue', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #ffffff;
+  color: #333;
+}
+
+#container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#sidebar {
+  width: 280px;
+  background-color: #f4f4f4;
+  padding: 20px;
+  border-right: 1px solid #ddd;
+  overflow-y: auto;
+  height: 100vh;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  transition: transform 0.3s ease-in-out;
+  transform: translateX(0);
+}
+
+#sidebar.hidden {
+  transform: translateX(-100%);
+}
+
+#content {
+  flex-grow: 1;
+  padding: 30px;
+  margin-left: 300px;
+  background-color: #fafafa;
+  transition: margin-left 0.3s ease-in-out;
+  overflow-y: auto;
+  height: 100vh;
+}
+
+#content.shift {
+  margin-left: 0;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+li {
+  padding: 10px 15px;
+  border-radius: 6px;
+  transition: background-color 0.2s;
+  font-size: 15px;
+}
+
+li:hover {
+  background-color: #e6e6e6;
+}
+
+.active {
+  background-color: #d0d0d0;
+  font-weight: bold;
+}
+
+.subtopic {
+  display: none;
+  padding-left: 20px;
+  margin-top: 5px;
+}
+
+.subtopic.active {
+  display: block;
+}
+
+.profile-section {
+  max-width: 1920px;
+  margin-left: 5px;
+  margin-right: 0 auto;
+}
+
+.profile-item {
+  background-color: #ffffff;
+  padding: 16px 20px;
+  margin-bottom: 10px;
+  border-left: 4px solid #007bff;
+  border-radius: 6px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+  font-size: 15px;
+}
+
+.profile-section h2 {
+  margin-top: 30px;
+  font-size: 20px;
+  color: #333333;
+}
+
+.aside-item {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 10px;
+}
+
+.aside-item::before {
+  content: "●";
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #A2A2A2;
+  font-size: 8px;
+}
+
+button {
+  padding: 8px 14px;
+  margin-bottom: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+@media screen and (max-width: 768px) {
+  #sidebar {
+    width: 250px;
+    transform: translateX(-100%);
+  }
+
+  #sidebar.hidden {
+    transform: translateX(0);
+  }
+
+  #content {
+    margin-left: 0;
+  }
+}
